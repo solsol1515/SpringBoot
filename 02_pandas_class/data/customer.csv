@@ -1,0 +1,9 @@
+Name,date,price,state
+Kang,2017-01-01,500,confirmed
+Kim,2017-01-03,700,confirmed
+Choi,2017-01-03,900,confirmed
+Park,2017-01-05,800,confirmed
+Lee,2017-01-07,500,canceled
+Yoon,2017-01-09,700,confirmed
+Jang,2017-01-09,600,canceled
+Ko,2017-01-10,200,canceled

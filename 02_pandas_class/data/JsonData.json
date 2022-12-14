@@ -1,0 +1,12 @@
+{
+	"kind1": "koreanfood",
+	"region": [
+		"nosong",
+		"bibim",
+		"jungsung"
+	],
+	"food_name": {
+		"best-of-best": "bibimbab",
+		"one-of-best": "bulgogi"
+	}
+}
