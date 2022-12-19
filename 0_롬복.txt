@@ -1,0 +1,29 @@
+
+# 롬복을 수업하지 않고 들어왔다면
+  롬복을 먼저 확인해야 함
+
+-----------------------------------------------------
+[ 추가 ] Lombok 설치
+
+	` 기본적으로 웹 애플리케이션에서 사용하는 VO 객체는 DB 테이블의 column 과 같은 이름의 private 변수를 가지고,
+	  getter setter 메소드를 정의 한 후 toString 메소드를 정의한다. 
+	  이를 자동으로 해준다
+
+	1) https://projectlombok.org 에서 다운로드
+	2) lombok.jar 파일을 더블클릭 실행 또는    ( java -jar lombok.jar )
+	3) 기존 이클립스 실행파일로 기본으로 되어 있어서  [Specify Location] 해당 STS.exe를 선택하고 [Install/Update]
+	4) 해당 STS.exe와 동일한 폴더에 lombok.jar파일 추가되었는지 확인
+	5) 바탕화면에 있던 바로가기 지우고 다시 실행
+	6) pom.xml
+		<!-- ### Lombok ### -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+  	0) 참고 : https://niceman.tistory.com/99
+  			 https://advenoh.tistory.com/24
+
+  			 

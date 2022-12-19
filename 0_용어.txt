@@ -1,0 +1,20 @@
+
+* 마이바티즈
+	- 자바 코드와 SQL를 분리함으로 불필요한 자바 코드를 제거
+	- 그럼에도 개발자가 직접 SQL을 관리
+	- 데이터 구조 변경시 효율적 대처하기 어려움
+	
+* ORM ( Object Relational Mapping )
+	- 객체와 테이블을 자동으로 매핑해주는 프레임워크
+	- ORM 표준은 JPA (java persistence api)
+	- ORM 중에 하나로 Hibernate 
+	
+			Application
+				|
+			   JPA
+		|		|			|
+	hibernate EclipseLink DataNucleus
+	
+
+* 참고사이트
+	https://joont92.github.io/jpa/JPQL/
