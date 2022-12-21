@@ -1,0 +1,9 @@
+# DB connect
+spring.datasource.driver-class-name=
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+# mybatis mapping
+
+# web server port
+# server.port=8888

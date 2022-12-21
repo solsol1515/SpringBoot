@@ -1,0 +1,37 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.domain.BoardVO;
+import com.example.service.BoardService;
+
+@Controller
+@RequestMapping("/board")				// board까지 위치 낮추기
+public class BoardController {
+	
+	@Autowired
+	private BoardService boardService;
+	
+	@RequestMapping("/{step}")			// DB연동되지 않는 것들에 사용
+	public String viewPage(@PathVariable String step) {
+		return "board/" + step;
+	}
+	
+	@RequestMapping("/getBoardList")
+	public void getBoardList(Model m) {
+		
+		BoardVO vo = new BoardVO();			// 지금은 이 객체 필요 없음(역할 없음) _ 조건 잡거나 검색할 때 사용
+		List<BoardVO> list = boardService.getBoardList(vo);
+		System.out.println("[Controller : getBoardList 요청] 결과 개수" + list.size());
+		
+		m.addAttribute("boardList", list);
+		
+	}
+	
+}

@@ -1,0 +1,9 @@
+# DB connect
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:orcle:thin:@127.0.0.1:1521/xe
+spring.datasource.username=scott
+spring.datasource.password=tiger
+# mybatis mapping
+
+# web server port
+# server.port=8888
