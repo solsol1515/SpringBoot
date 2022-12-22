@@ -1,7 +1,0 @@
-package com.example.service;
-
-public interface BoardService {
-	
-	List<BoardVO> getBoardList(BoardVO vo);
-
-}
