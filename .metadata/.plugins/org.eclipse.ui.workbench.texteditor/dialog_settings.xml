@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="textare"/>
+		<item key="selection" value="getBo"/>
 		<list key="findhistory">
+			<item value="getBo"/>
+			<item value="save"/>
 			<item value="textare"/>
 			<item value="insert"/>
 		</list>

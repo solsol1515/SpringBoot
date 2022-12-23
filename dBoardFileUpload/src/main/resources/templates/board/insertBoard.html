@@ -1,0 +1,46 @@
+<!-- #####################################  -->
+<!-- 타임리프설정 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>새글등록</title>
+</head>
+<body>
+<h1>글등록</h1>      
+<hr>
+<!-- ## 등록버튼시 요청지정 
+	(file upload가 있을 경우 method='post' enctype='multipart/form-data') ## -->
+<form th:action="@{/board/saveBoard}" method="post" enctype='multipart/form-data'>
+   <table border="1" cellpadding="0" cellspacing="0">
+      <tr>
+         <td bgcolor="green" width="70">제목</td>
+         <td align="left"><input type="text" name="title"/></td>
+      </tr>
+      <tr>
+         <td bgcolor="green">작성자</td>
+         <td align="left"><input type="text" name="writer" size="10"/></td>
+      </tr>
+      <tr>
+         <td bgcolor="green">내용</td>
+         <td align="left"><textarea name="content" cols="40" rows="10"></textarea></td>
+      </tr>
+
+      
+      <!-- 추가:파일 -->
+      <tr>
+      	<td bgcolor="lightblue">파일첨부</td>
+      	<td align="left">
+      		<input type="file" name="file">
+      	</td>
+      </tr>
+     
+      <tr>
+      	<td colspan="2" align="center"><input type="submit"    value=" 새글등록 "/></td>
+      </tr>
+      
+   </table>
+</form>
+<hr>
+<!-- ## 글목록 링크 ## -->
+<a th:href="@{/board/getBoardList}" >글목록가기</a>
+</body>
+</html>

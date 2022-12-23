@@ -1,0 +1,41 @@
+<!-- #####################################  -->
+<!-- 타임리프설정 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>글목록</title>
+</head>
+<body th:align="center">
+	<h1>게시글목록</h1>
+
+	<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="600">
+			<tr>
+				<th bgcolor="orange" width="100">번호</th>
+				<th bgcolor="orange" width="200">제목</th>
+				<th bgcolor="orange" width="150">작성자</th>
+				<th bgcolor="orange" width="150">등록일</th>
+				<th bgcolor="orange" width="100">조회수</th>
+			</tr>
+			<!-- #####################################  -->
+			<tr th:each="board : ${boardList}">
+				<td th:text="${board.seq}"></td>
+				<!-- 기존방식 -->
+				<!-- <td><a href=' '>글씨</a></td> -->
+				<td><a th:href='@{/board/{seq}(seq=${board.seq})}' 
+							th:text="${board.title}"></a></td>
+				<td th:text="${board.writer}"></td>
+				<td th:text="${board.regdate}"></td>
+				<td th:text="${board.cnt}"></td>
+			</tr>
+
+
+
+		</table>
+		
+		<!-- ## 글등록 링크 ## -->
+		<a href='/board/write'>새글등록(기존-상대)</a>
+		<a href='/board/write'>새글등록(기존-절대)</a> <hr/>
+		<a th:href="@{/board/write}" >새글등록(thymeleaf-상대)</a>
+		<a th:href="@{/board/write}" >새글등록(thymeleaf-절대)</a>
+</body>
+</html>

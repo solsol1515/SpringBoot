@@ -1,0 +1,18 @@
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>시작</title>
+	</head>
+	<body>
+		<!-- 기존방식 -->
+		<a href='/board'>게시판</a><br/>
+		<a href='/member/insertMemberForm'>회원가입</a>
+		<hr/><hr/>
+		
+		<!-- 타임리프방식 -->
+		<a th:href='@{/board}'>게시판</a><br/>
+		<a th:href='@{/member/insertMemberForm}'>회원가입</a><br/>
+		<a th:href='@{/member/loginForm}'>로그인</a><br/>
+		
+	</body>	
+</html>

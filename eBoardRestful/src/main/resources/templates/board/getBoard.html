@@ -1,0 +1,48 @@
+<!-- #####################################  -->
+<!-- 타임리프설정 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>글 상세</title>
+</head>
+<body>
+<h1>글 상세</h1>		
+<hr>
+<!-- ## 등록버튼시 요청지정 ## -->
+<form th:action="@{/board/updateBoard}" method="post">
+	<!-- ## 각각의 값을 지정 ## -->
+	<input name="seq" type="hidden" th:value="${board.seq}" />
+	<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="600">
+		<tr>
+			<td bgcolor="orange" width="70">제목</td>
+			<td align="left"><input name="title" type="text"  th:value="${board.title}" >
+		<tr>
+			<td bgcolor="orange">작성자</td>
+			<td align="left" th:text="${board.writer}"></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">내용</td>
+			<td align="left"><textarea name="content" cols="40" rows="10" th:text="${board.content}"></textarea></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">등록일</td>
+			<td align="left" th:text="${board.regdate}"></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">조회수</td>
+			<td align="left" th:text="${board.cnt}"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit"	value="글수정"/></td>
+		</tr>
+	</table>
+</form>
+<hr>
+
+<!-- ## 각각의 링크 ## -->
+<a th:href="@{/board/insertBoard}">글등록</a>&nbsp;&nbsp;&nbsp;
+<a th:href="@{/board/deleteBoard(seq=${board.seq})}">글삭제</a>&nbsp;&nbsp;&nbsp;
+<a th:href="@{/board/getBoardList}">글목록</a>
+</body>
+</html>
+

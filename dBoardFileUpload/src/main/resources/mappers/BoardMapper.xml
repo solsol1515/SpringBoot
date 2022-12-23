@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.BoardDAO">
+
+	<select id="getBoardList" resultType="BoardVO">
+		SELECT   *
+		FROM 	 BOARD2
+		ORDER    BY SEQ DESC
+	</select>
+	
+	<select id="getBoard" resultType="hashmap" parameterType="BoardVO">
+		SELECT   b2.SEQ seq, b2.TITLE title, b2.WRITER writer, b2.CONTENT content, b2.REGDATE regdate, b2.CNT cnt, 
+				 bf.FILEID fileid,
+                 bf.FILENAME filename, bf.origfilename origfilename, bf.filepath filepath
+		FROM     board2 b2 LEFT OUTER JOIN board_file bf
+		ON       b2.FILEID = bf.fileid
+		WHERE    b2.seq = #{seq}
+ 	</select>
+ 	
+	
+    <!-- file이 없으면 없는 채로 가능 -->
+    <insert id="saveBoard" parameterType="BoardVO">
+      INSERT INTO BOARD2 (SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
+         <if test='#{fileId != null}'>
+         , FILEID
+         </if>
+         )
+      VALUES(board_seq.nextval, #{title}, #{writer}, #{content}, sysdate, 0
+         <if test='#{fileId != null}'>
+         , #{fileId}
+         </if>
+         )
+   </insert>
+
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE  BOARD2 SET
+				TITLE = #{title},
+				CONTENT = #{content}
+		WHERE 	SEQ = #{seq}
+	</update>
+	
+	<update id='updateCnt' parameterType="BoardVO">
+      UPDATE BOARD2 SET
+      		cnt = cnt + 1
+      WHERE seq = #{seq}
+    </update>
+	
+	
+	<delete id="deleteBoard" parameterType="BoardVO">
+		DELETE FROM board2
+		WHERE 	 	seq = #{seq}
+	</delete>
+	
+	
+	
+</mapper>

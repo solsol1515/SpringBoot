@@ -1,0 +1,31 @@
+<!-- 타임리프설정 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>새 회원 등록</title>
+</head>
+<body>
+<h1>회원 등록</h1>		
+<hr>
+<form th:action="@{/member/insertMember}" method="post">
+	<table border="1" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="lightblue" width="70">아이디</td>
+			<td align="left"><input type="text" name="userid"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightblue">이름</td>
+			<td align="left"><input type="text" name="username" size="10"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightblue">패스워드</td>
+			<td align="left"><input type="password" name="userpass" size="10"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit"	 value="가 입 하 기"/></td>
+		</tr>
+	</table>
+</form>
+<hr>
+<a th:href="@{/member/loginForm}">로 그 인</a>
+</body>
+</html>

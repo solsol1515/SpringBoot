@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.FileDAO">
+
+	<insert id="insertFile" parameterType="FileVO">
+		INSERT INTO board_file (fileId, origFilename, filename, filePath)
+		VALUES (board_file_seq.NEXTVAL, #{origFilename}, #{filename}, #{filePath})
+	</insert>
+
+	<select id="selectFile" parameterType="FileVO" resultType="FileVO">
+		SELECT 	*
+		FROM	board_file
+		WHERE	fileid=#{fileId}
+	</select>
+	
+	<select id="selectId" resultType="long">
+		SELECT 	board_file_seq.CURRVAL 
+		FROM 	dual
+	</select>
+	
+</mapper>
